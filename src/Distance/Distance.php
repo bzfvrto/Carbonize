@@ -2,6 +2,7 @@
 
 namespace Bzfvrto\Carbonize\Distance;
 
+use Bzfvrto\Carbonize\Enum\Ellipsoid;
 use Bzfvrto\Carbonize\ValueObject\Point;
 
 final class Distance
@@ -107,7 +108,7 @@ final class Distance
         $a = (sin($deltaLat / 2) ** 2) + cos($fromLat) * cos($toLat) * (sin($deltaLng / 2) ** 2);
         $c = 2 * asin(sqrt($a));
 
-        $radius = $this->getRadiusFromElipsoid();
+        $radius = $this->getRadiusFromEllipsoid();
 
         return $radius * $c;
     }
@@ -123,13 +124,9 @@ final class Distance
     //     };
     // }
 
-    protected function getRadiusFromElipsoid(): float
+    protected function getRadiusFromEllipsoid(): float
     {
-        $ellipsoid = [
-            'name' => 'WGS 84',
-            'radius' => 6378137.0,
-            'invFlattening' => 298.257223563,
-        ];
+        $ellipsoid = Ellipsoid::WSG84->data();
 
         return (float) $ellipsoid['radius'] * (1 - 1 / $ellipsoid['invFlattening'] / 3);
     }
