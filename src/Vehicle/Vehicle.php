@@ -7,7 +7,7 @@ use Bzfvrto\Carbonize\Enum\Combustible;
 
 final class Vehicle
 {
-    protected ?Combustible $combustible;
+    protected Combustible $combustible;
 
     protected int|float $consumptionAvgPerKm = 0;
 
@@ -25,6 +25,10 @@ final class Vehicle
 
     public function emission(): Emission
     {
+        if (! isset($this->combustible)) {
+            throw new \Exception("You must set combustible in order to be abble to calculate emission", 1);
+
+        }
         return new Emission($this->combustible->getGES(), $this->consumptionAvgPerKm);
     }
 
