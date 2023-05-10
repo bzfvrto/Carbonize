@@ -25,12 +25,20 @@ composer require bzfvrto/carbonize
 ## Usage
 
 ```php
-$distance = Distance::new()
-            ->setFrom(new Point(1, 2))
-            ->setTo(new Point(4, 5))
-            ->setSteps([new Point(1,3), new Point(2, 4)])
-            ->calculate();
-Carbonize::new()->setDistance($distance)->calculateFootprint()->result();
+$distance = Distance::make()
+                ->setFrom(new Point(1, 2))
+                ->setTo(new Point(4, 5))
+                ->setSteps([new Point(1,3), new Point(2, 4)])
+                ->calculate();
+
+$emission = Emission::make()
+                ->setCombustible(Combustible::DIESEL)
+                ->setConsumptionAvgFor100Km(7.5)
+                ->getCO2EquivalentInGrammePerKm();
+
+Carbonize::make()->setCo2PerKm($emission)
+                ->setDistance($distance)
+                ->formatedResult();
 ```
 
 ## Testing

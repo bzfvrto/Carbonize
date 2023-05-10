@@ -2,18 +2,17 @@
 
 namespace Bzfvrto\Carbonize;
 
-use Bzfvrto\Carbonize\Distance\Distance;
 use Bzfvrto\Carbonize\Calculator\Calculator;
 
 final class Carbonize
 {
-    protected int|float $co2PerKm = 132;
+    protected int|float $co2PerKm;
 
     protected float $distance;
 
     protected float $footprint;
 
-    public static function new(): self
+    public static function make(): self
     {
         return new self();
     }
@@ -37,12 +36,14 @@ final class Carbonize
         }
 
         $this->footprint = (new Calculator($this->co2PerKm, $this->distance))->result();
-
         return $this;
     }
 
     public function getFootprint(): float
     {
+        if (! isset($this->footprint)) {
+            $this->calculateFootprint();
+        }
         return $this->footprint;
     }
 
@@ -55,7 +56,7 @@ final class Carbonize
     {
         return sprintf(
             '%s gramme of CO2 emited for %s km',
-            round($this->footprint, 3),
+            round($this->getFootprint(), 3),
             round($this->distance / 1000, 2)
         );
     }

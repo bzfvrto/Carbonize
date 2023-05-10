@@ -14,7 +14,7 @@ final class Distance
      */
     protected $steps;
 
-    public static function new(): self
+    public static function make(): self
     {
         return new self;
     }
