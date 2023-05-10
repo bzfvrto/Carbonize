@@ -32,13 +32,14 @@ $distance = Distance::make()
                 ->calculate();
     // output (float) distance in meters: 516972.895251
 
-$emission = Emission::make()
+$vehicle = Vehicle::make()
                 ->setCombustible(Combustible::DIESEL)
-                ->setConsumptionAvgFor100Km(7.5)
-                ->getCO2EquivalentInGrammePerKm();
+                ->setConsumptionAvgFor100Km(7.5);
+
+$vehicle->emission()->getCO2EquivalentInGrammePerKm();
     // output (float) C02e in grammes per km: 197.25
 
-Carbonize::make()->setCo2PerKm($emission)
+Carbonize::make()->setVehicle($vehicle)
                 ->setDistance($distance)
                 ->formatedResult();
     // output (string): 101972.904 gramme of CO2 emited for 516.97 km

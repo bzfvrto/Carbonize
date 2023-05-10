@@ -7,7 +7,7 @@ use Bzfvrto\Carbonize\ValueObject\GES;
 final class Emission
 {
     public function __construct(
-        protected readonly GES $emissionPerTon,
+        protected readonly GES $emission,
         protected readonly int|float $consumption
     ) {
     }
@@ -26,7 +26,7 @@ final class Emission
 
     public function co2InGramsPerLitre(): float
     {
-        return $this->emissionPerTon->getCo2eInKgPerLiter() * 1000;
+        return $this->emission->getCo2eInKgPerLiter() * 1000;
         // return $this->combustible->getGES()['co2'] * 1000;
     }
 
