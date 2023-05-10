@@ -30,15 +30,18 @@ $distance = Distance::make()
                 ->setTo(new Point(4, 5))
                 ->setSteps([new Point(1,3), new Point(2, 4)])
                 ->calculate();
+    // output (float) distance in meters: 516972.895251
 
 $emission = Emission::make()
                 ->setCombustible(Combustible::DIESEL)
                 ->setConsumptionAvgFor100Km(7.5)
                 ->getCO2EquivalentInGrammePerKm();
+    // output (float) C02e in grammes per km: 197.25
 
 Carbonize::make()->setCo2PerKm($emission)
                 ->setDistance($distance)
                 ->formatedResult();
+    // output (string): 101972.904 gramme of CO2 emited for 516.97 km
 ```
 
 ## Testing
