@@ -2,47 +2,41 @@
 
 namespace Bzfvrto\Carbonize\Emission;
 
-use Bzfvrto\Carbonize\Enum\Combustible;
+use Bzfvrto\Carbonize\ValueObject\GES;
 
 final class Emission
 {
-    protected ?Combustible $combustible;
-
-    protected null|int|float $consumptionAvgPerKm = null;
-
-    public function setCombustible(Combustible $combustible): self
-    {
-        $this->combustible = $combustible;
-        return $this;
+    public function __construct(
+        protected readonly GES $emissionPerTon,
+        protected readonly int|float $consumption
+    ) {
     }
 
-    public function setConsumptionAvgFor100Km(int|float $consumption): self
+    // public function setCombustible(Combustible $combustible): self
+    // {
+    //     $this->combustible = $combustible;
+    //     return $this;
+    // }
+
+    // public function setConsumptionAvgFor100Km(int|float $consumption): self
+    // {
+    //     $this->consumptionAvgPerKm = $consumption / 100;
+    //     return $this;
+    // }
+
+    public function co2InGramsPerLitre(): float
     {
-        $this->consumptionAvgPerKm = $consumption / 100;
-        return $this;
+        return $this->emissionPerTon->getCo2eInKgPerLiter() * 1000;
+        // return $this->combustible->getGES()['co2'] * 1000;
     }
 
-    public function calculateEmissionPerGrammePerLitre()
+    public function calculateEmissionInGramsPerKm(): float
     {
-        return $this->combustible->getGES()['co2'] * 1000;
-    }
-
-    public function calculateEmissionPerGrammePerKm()
-    {
-        if ($this->consumptionAvgPerKm === null) {
-            throw new \Exception("Consumption average per km is null", 1);
-        }
-
-        return $this->calculateEmissionPerGrammePerLitre() * $this->consumptionAvgPerKm;
+        return $this->co2InGramsPerLitre() * $this->consumption;
     }
 
     public function getCO2EquivalentInGrammePerKm(): float
     {
-        return $this->calculateEmissionPerGrammePerKm();
-    }
-
-    public static function make(): self
-    {
-        return new self;
+        return $this->calculateEmissionInGramsPerKm();
     }
 }

@@ -3,10 +3,11 @@
 namespace Bzfvrto\Carbonize;
 
 use Bzfvrto\Carbonize\Calculator\Calculator;
+use Bzfvrto\Carbonize\Vehicle\Vehicle;
 
 final class Carbonize
 {
-    protected int|float $co2PerKm;
+    protected Vehicle $vehicle;
 
     protected float $distance;
 
@@ -23,9 +24,9 @@ final class Carbonize
         return $this;
     }
 
-    public function setCo2PerKm(int|float $grammePerKm): self
+    public function setVehicle(Vehicle $vehicle): self
     {
-        $this->co2PerKm = $grammePerKm;
+        $this->vehicle = $vehicle;
         return $this;
     }
 
@@ -35,7 +36,10 @@ final class Carbonize
             throw new \Exception("You must set distance to be abble to calculate footprint", 1);
         }
 
-        $this->footprint = (new Calculator($this->co2PerKm, $this->distance))->result();
+        $this->footprint = (new Calculator(
+            $this->vehicle->emission()->getCO2EquivalentInGrammePerKm(),
+            $this->distance
+            ))->result();
         return $this;
     }
 
