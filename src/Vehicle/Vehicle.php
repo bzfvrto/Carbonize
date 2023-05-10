@@ -9,7 +9,7 @@ final class Vehicle
 {
     protected Combustible $combustible;
 
-    protected int|float $consumptionAvgPerKm = 0;
+    protected int|float $consumptionAvgInLiterFor100Km = 0;
 
     public function setCombustible(Combustible $combustible): self
     {
@@ -19,7 +19,7 @@ final class Vehicle
 
     public function setConsumptionAvgFor100Km(int|float $consumption): self
     {
-        $this->consumptionAvgPerKm = $consumption / 100;
+        $this->consumptionAvgInLiterFor100Km = $consumption;
         return $this;
     }
 
@@ -29,7 +29,10 @@ final class Vehicle
             throw new \Exception("You must set combustible in order to be abble to calculate emission", 1);
 
         }
-        return new Emission($this->combustible->getGES(), $this->consumptionAvgPerKm);
+        return new Emission(
+            $this->combustible->getGES(),
+            $this->consumptionAvgInLiterFor100Km / 100
+        );
     }
 
     // public function calculateEmissionPerGrammePerLitre()

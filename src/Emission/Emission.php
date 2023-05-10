@@ -8,7 +8,7 @@ final class Emission
 {
     public function __construct(
         protected readonly GES $emission,
-        protected readonly int|float $consumption
+        protected readonly int|float $consumptionInLiterPerKm
     ) {
     }
 
@@ -32,10 +32,10 @@ final class Emission
 
     public function calculateEmissionInGramsPerKm(): float
     {
-        return $this->co2InGramsPerLitre() * $this->consumption;
+        return $this->co2InGramsPerLitre() * $this->consumptionInLiterPerKm;
     }
 
-    public function getCO2EquivalentInGrammePerKm(): float
+    public function getCO2EquivalentInGramsPerKm(): float
     {
         return $this->calculateEmissionInGramsPerKm();
     }

@@ -37,7 +37,7 @@ final class Carbonize
         }
 
         $this->footprint = (new Calculator(
-            $this->vehicle->emission()->getCO2EquivalentInGrammePerKm(),
+            $this->vehicle->emission()->getCO2EquivalentInGramsPerKm(),
             $this->distance
             ))->result();
         return $this;
