@@ -12,18 +12,6 @@ final class Emission
     ) {
     }
 
-    // public function setCombustible(Combustible $combustible): self
-    // {
-    //     $this->combustible = $combustible;
-    //     return $this;
-    // }
-
-    // public function setConsumptionAvgFor100Km(int|float $consumption): self
-    // {
-    //     $this->consumptionAvgPerKm = $consumption / 100;
-    //     return $this;
-    // }
-
     public function co2InGramsPerLitre(): float
     {
         return $this->emission->getCo2eInKgPerLiter() * 1000;
