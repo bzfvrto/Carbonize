@@ -6,7 +6,6 @@ use Bzfvrto\Carbonize\DTO\GasEmited;
 
 final class CSVAdemeReader extends CSVReader
 {
-    public static string $source = 'Ademe';
     /**
      * @return array<int, array<string, string>>
      */
@@ -14,7 +13,7 @@ final class CSVAdemeReader extends CSVReader
     {
         $csvData = $this->read();
 
-        return $this->resolveFormatter()->formatToArray($csvData);
+        return $this->formatter()->formatToArray($csvData);
     }
 
     /**
@@ -29,10 +28,15 @@ final class CSVAdemeReader extends CSVReader
             $searchFor = 'Supercarburant sans plomb (95, 95-E10, 98)';
         }
 
-        return $this->resolveFormatter()->toDTO(array_values(
+        return $this->formatter()->toDTO(array_values(
             array_filter($this->csvArray(), function($item) use ($searchFor) {
                 return $item['Nom attribut français'] === $searchFor && $item['Type poste'] === '';
             })
         )[0]);
+    }
+
+    public function formatter(): Formater
+    {
+        return new CSVAdemeFormater();
     }
 }

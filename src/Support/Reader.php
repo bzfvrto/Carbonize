@@ -17,4 +17,6 @@ interface Reader
      * @return GasEmited
      */
     public function find(string $attributFr): GasEmited;
+
+    public function formatter(): Formater;
 }

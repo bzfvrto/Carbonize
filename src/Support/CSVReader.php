@@ -4,8 +4,6 @@ namespace Bzfvrto\Carbonize\Support;
 
 abstract class CSVReader implements Reader
 {
-    public static string $source;
-
     public function __construct(
         private readonly string $url
     ) {
@@ -27,13 +25,5 @@ abstract class CSVReader implements Reader
         fclose($file);
 
         return array_filter($lines);
-    }
-
-    public function resolveFormatter(): Formater
-    {
-        return match($this::$source) {
-            'Ademe' => new CSVAdemeFormater(),
-            default => new CSVAdemeFormater(),
-        };
     }
 }
