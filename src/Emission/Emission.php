@@ -23,13 +23,14 @@ final class Emission
 
     public function getGES(): GES
     {
+        /** @var \Bzfvrto\Carbonize\DTO\GasEmited $data */
         $data = $this->gesProvider()->find($this->combustible->value);
 
         return new GES(
-            kgCO2equivalentPerLiter: (float) $data[0]['Total poste non décomposé'],
-            kgCO2fPerLiter: (float) array_values($data[0])[0],
-            kgCH4PerLiter: (float) $data[0]['CH4f'],
-            kgN2OPerLiter: (float) $data[0]['N2O']
+            kgCO2equivalentPerLiter: $data->co2equivalent,
+            kgCO2fPerLiter: $data->co2f,
+            kgCH4PerLiter: $data->ch4f,
+            kgN2OPerLiter: $data->n2o
         );
     }
 

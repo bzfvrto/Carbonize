@@ -2,6 +2,8 @@
 
 namespace Bzfvrto\Carbonize\Support;
 
+use Bzfvrto\Carbonize\DTO\GasEmited;
+
 interface Reader
 {
 
@@ -12,7 +14,7 @@ interface Reader
 
     /**
      * @param string $attributFr
-     * @return array<int, array<string, string>>
+     * @return GasEmited
      */
-    public function find(string $attributFr): array;
+    public function find(string $attributFr): GasEmited;
 }

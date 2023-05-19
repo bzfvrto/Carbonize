@@ -2,7 +2,7 @@
 
 namespace Bzfvrto\Carbonize\Enum;
 
-use Bzfvrto\Carbonize\Support\CSVReader;
+use Bzfvrto\Carbonize\Support\CSVAdemeReader;
 use Bzfvrto\Carbonize\Support\Reader;
 
 enum Country
@@ -12,7 +12,7 @@ enum Country
     public function getGESProvider(): Reader
     {
         return match($this) {
-            self::FRANCE => new CSVReader(
+            self::FRANCE => new CSVAdemeReader(
                 __DIR__.'/../../assets/base-carboner_combustible.csv'
             ),
         };
