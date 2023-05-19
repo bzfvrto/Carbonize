@@ -14,13 +14,4 @@ final class Calculator
     {
         return $this->co2PerKm * ($this->distance / 1000);
     }
-
-    public function formatedResult(): string
-    {
-        return sprintf(
-            '%s gramme of CO2 emited for %s km',
-            round($this->result(), 3),
-            round($this->distance / 1000, 2)
-        );
-    }
 }

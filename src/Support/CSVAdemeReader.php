@@ -22,17 +22,22 @@ final class CSVAdemeReader extends CSVReader
      */
     public function find(string $attributFr): GasEmited
     {
-        $searchFor = $attributFr;
-
-        if ($attributFr === 'SUPER') {
-            $searchFor = 'Supercarburant sans plomb (95, 95-E10, 98)';
-        }
+        $serachableTerm = $this->defineSearchableTerm($attributFr);
 
         return $this->formatter()->toDTO(array_values(
-            array_filter($this->csvArray(), function($item) use ($searchFor) {
-                return $item['Nom attribut français'] === $searchFor && $item['Type poste'] === '';
+            array_filter($this->csvArray(), function($item) use ($serachableTerm) {
+                return $item['Nom attribut français'] === $serachableTerm && $item['Type poste'] === '';
             })
         )[0]);
+    }
+
+    protected function defineSearchableTerm(string $term): string
+    {
+        if ($term === 'SUPER') {
+            $term = 'Supercarburant sans plomb (95, 95-E10, 98)';
+        }
+
+        return $term;
     }
 
     public function formatter(): Formater

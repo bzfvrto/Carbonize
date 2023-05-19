@@ -7,35 +7,21 @@ use Bzfvrto\Carbonize\Vehicle\Vehicle;
 
 final class Carbonize
 {
-    protected Vehicle $vehicle;
+    // protected Vehicle $vehicle;
 
-    protected float $distance;
+    // protected float $distance;
 
     protected float $footprint;
 
-    public static function make(): self
-    {
-        return new self();
-    }
-
-    public function setDistance(float $distanceInMeters): self
-    {
-        $this->distance = $distanceInMeters;
-        return $this;
-    }
-
-    public function setVehicle(Vehicle $vehicle): self
-    {
-        $this->vehicle = $vehicle;
-        return $this;
+    public function __construct(
+        protected readonly Vehicle $vehicle,
+        protected readonly float $distance,
+    ) {
+        $this->calculateFootprint();
     }
 
     public function calculateFootprint(): self
     {
-        if (!isset($this->distance)) {
-            throw new \Exception("You must set distance to be abble to calculate footprint", 1);
-        }
-
         $this->footprint = (new Calculator(
             $this->vehicle->emission()->getCO2EquivalentInGramsPerKm(),
             $this->distance
@@ -45,9 +31,6 @@ final class Carbonize
 
     public function getFootprint(): float
     {
-        if (! isset($this->footprint)) {
-            $this->calculateFootprint();
-        }
         return $this->footprint;
     }
 

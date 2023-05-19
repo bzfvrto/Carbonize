@@ -37,6 +37,8 @@ final class Distance
      */
     public function setSteps(array $steps = []): self
     {
+        $this->validateSteps($steps);
+
         $this->steps = $steps;
         return $this;
     }
@@ -52,7 +54,6 @@ final class Distance
     public function calculate(): float
     {
         if ($this->hasSteps()) {
-            $this->validateSteps();
             $waypoints = array_merge([$this->from], $this->steps, [$this->to]);
             $lineStringArray = $this->makeLinestringArrayFromWaypoints($waypoints);
 
@@ -66,9 +67,13 @@ final class Distance
         return $this->getStepsCount() > 0;
     }
 
-    protected function validateSteps(): void
+    /**
+     * @param Point[] $steps
+     * @return void
+     */
+    protected function validateSteps(array $steps): void
     {
-        foreach ($this->steps as $step) {
+        foreach ($steps as $step) {
             if (!$step instanceof Point) {
                 throw new \Exception("[$step] must be an instance of Point", 1);
             }

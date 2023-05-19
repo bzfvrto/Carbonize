@@ -37,8 +37,8 @@ final class Vehicle
     public static function make(
         Combustible $combustible,
         int|float $consumptionAvgInLiterFor100Km = 0,
-        Country $country = Country::FRANCE
+        Country $location = Country::FRANCE
     ): self {
-        return new self($combustible, $consumptionAvgInLiterFor100Km, $country);
+        return new self($combustible, $consumptionAvgInLiterFor100Km, $location);
     }
 }
