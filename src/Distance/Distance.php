@@ -7,8 +7,8 @@ use Bzfvrto\Carbonize\ValueObject\Point;
 
 final class Distance
 {
-    protected ?Point $from = null;
-    protected ?Point $to = null;
+    protected Point $from;
+    protected Point $to;
     /**
      * @var Point[]
      */
@@ -51,16 +51,28 @@ final class Distance
 
     public function calculate(): float
     {
-        if ($this->from === null || $this->to === null) {
-            throw new \Exception("From or To can not be null", 1);
-        }
-        if ($this->getStepsCount() > 0) {
+        if ($this->hasSteps()) {
+            $this->validateSteps();
             $waypoints = array_merge([$this->from], $this->steps, [$this->to]);
             $lineStringArray = $this->makeLinestringArrayFromWaypoints($waypoints);
 
             return $this->addDistance($lineStringArray);
         }
         return $this->haversine($this->from, $this->to);
+    }
+
+    protected function hasSteps(): bool
+    {
+        return $this->getStepsCount() > 0;
+    }
+
+    protected function validateSteps(): void
+    {
+        foreach ($this->steps as $step) {
+            if (!$step instanceof Point) {
+                throw new \Exception("[$step] must be an instance of Point", 1);
+            }
+        }
     }
 
     /**
@@ -112,17 +124,6 @@ final class Distance
 
         return $radius * $c;
     }
-
-    // protected function isValid(): void
-    // {
-    //     if ($this->from === null || $this->to === null) {
-    //         throw new \Exception("From or To can not be null", 1);
-    //     }
-
-    //     if(!$this->from instanceof Point || !$this->to instanceof Point){
-    //         throw new \Exception("From or To are undefined", 1);
-    //     };
-    // }
 
     protected function getRadiusFromEllipsoid(): float
     {

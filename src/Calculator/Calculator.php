@@ -6,7 +6,7 @@ final class Calculator
 {
     public function __construct(
         protected readonly int|float $co2PerKm, // in gramme per km
-        protected readonly float $distance
+        protected readonly float $distance // in meters
     ) {
     }
 

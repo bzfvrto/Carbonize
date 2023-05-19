@@ -22,6 +22,7 @@ final class CSVReader implements Reader
         while(!feof($file)) {
             $lines[] = fgetcsv($file);
         }
+
         fclose($file);
 
         return array_filter($lines);
@@ -33,15 +34,22 @@ final class CSVReader implements Reader
     private function formatCSVDataToKeyedArray(): array
     {
         $csvData = $this->read();
+        return $this->formatCSVToArray($csvData);
+    }
 
-        $headers = $csvData[0];
-        unset($csvData[0]);
+    /**
+     * @param array<int, array<int, string>> $csv
+     * @return array<int, array<string, string>>
+     */
+    protected function formatCSVToArray(array $csv): array
+    {
+        $headers = $csv[0];
+        unset($csv[0]);
         // Remove double ""
         $headers[0] = str_replace('"', '', $headers[0]);
-
         $formatedArray = [];
 
-        foreach ($csvData as $csvLine) {
+        foreach ($csv as $csvLine) {
             if(is_array($csvLine)) {
                 $formatedArray[] = array_combine($headers, $csvLine);
             }

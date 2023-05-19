@@ -15,7 +15,6 @@ final class Emission
     public function co2InGramsPerLitre(): float
     {
         return $this->emission->getCo2eInKgPerLiter() * 1000;
-        // return $this->combustible->getGES()['co2'] * 1000;
     }
 
     public function calculateEmissionInGramsPerKm(): float
