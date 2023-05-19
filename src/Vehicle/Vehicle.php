@@ -4,39 +4,41 @@ namespace Bzfvrto\Carbonize\Vehicle;
 
 use Bzfvrto\Carbonize\Emission\Emission;
 use Bzfvrto\Carbonize\Enum\Combustible;
+use Bzfvrto\Carbonize\Enum\Country;
 
 final class Vehicle
 {
-    protected Combustible $combustible;
-
-    protected int|float $consumptionAvgInLiterFor100Km = 0;
-
-    public function setCombustible(Combustible $combustible): self
-    {
-        $this->combustible = $combustible;
-        return $this;
+    public function __construct(
+        protected readonly Combustible $combustible,
+        protected readonly int|float $consumptionAvgInLiterFor100Km = 0,
+        protected readonly Country $location = Country::FRANCE
+    ) {
     }
 
-    public function setConsumptionAvgFor100Km(int|float $consumption): self
+    public function getCombustible(): Combustible
     {
-        $this->consumptionAvgInLiterFor100Km = $consumption;
-        return $this;
+        return $this->combustible;
+    }
+
+    public function getCountry(): Country
+    {
+        return $this->location;
     }
 
     public function emission(): Emission
     {
-        if (! isset($this->combustible)) {
-            throw new \Exception("You must set combustible in order to be abble to calculate emission", 1);
-
-        }
         return new Emission(
-            $this->combustible->getGES(),
-            $this->consumptionAvgInLiterFor100Km / 100
+            $this->getCombustible(),
+            $this->consumptionAvgInLiterFor100Km / 100,
+            $this->getCountry()
         );
     }
 
-    public static function make(): self
-    {
-        return new self;
+    public static function make(
+        Combustible $combustible,
+        int|float $consumptionAvgInLiterFor100Km = 0,
+        Country $country = Country::FRANCE
+    ): self {
+        return new self($combustible, $consumptionAvgInLiterFor100Km, $country);
     }
 }

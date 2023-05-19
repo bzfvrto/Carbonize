@@ -12,20 +12,4 @@ enum Combustible: string
     case E10 = 'E10'; // Essence
     case E85 = 'E85'; // Essence
     case SUPER = 'SUPER'; // Essence
-
-    public function getGES(): GES
-    {
-        $reader = new CSVReader(
-            __DIR__.'/../../assets/base-carboner_combustible.csv'
-        );
-
-        $data = $reader->find($this->value);
-
-        return new GES(
-            kgCO2equivalentPerLiter: (float) $data[0]['Total poste non décomposé'],
-            kgCO2fPerLiter: (float) array_values($data[0])[0],
-            kgCH4PerLiter: (float) $data[0]['CH4f'],
-            kgN2OPerLiter: (float) $data[0]['N2O']
-        );
-    }
 }
