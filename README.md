@@ -32,9 +32,11 @@ $distance = Distance::make()
                 ->calculate();
     // output (float) distance in meters: 516972.895251
 
-$vehicle = Vehicle::make()
-                ->setCombustible(Combustible::B7)
-                ->setConsumptionAvgFor100Km(7.5);
+$vehicle = new Vehicle(
+        combustible: Combustible::B7,
+        consumptionAvgInLiterFor100Km: 7.5,
+        location: Country::FRANCE
+    );
 
 $vehicle->emission()->getCO2EquivalentInGramsPerKm();
     // output (float) C02e in grammes per km: 232.5

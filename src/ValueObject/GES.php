@@ -16,4 +16,19 @@ final class GES
     {
         return $this->kgCO2equivalentPerLiter;
     }
+
+    public function getCo2fInKgPerLiter(): int|float
+    {
+        return $this->kgCO2fPerLiter;
+    }
+
+    public function getCH4InKgPerLiter(): int|float
+    {
+        return $this->kgCH4PerLiter;
+    }
+
+    public function getN2OInKgPerLiter(): int|float
+    {
+        return $this->kgN2OPerLiter;
+    }
 }

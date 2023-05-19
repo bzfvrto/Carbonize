@@ -31,17 +31,17 @@ final class CSVReader implements Reader
     /**
      * @return array<int, array<string, string>>
      */
-    private function formatCSVDataToKeyedArray(): array
+    private function csvArray(): array
     {
         $csvData = $this->read();
-        return $this->formatCSVToArray($csvData);
+        return $this->formatCSVDataToKeyedArray($csvData);
     }
 
     /**
      * @param array<int, array<int, string>> $csv
      * @return array<int, array<string, string>>
      */
-    protected function formatCSVToArray(array $csv): array
+    protected function formatCSVDataToKeyedArray(array $csv): array
     {
         $headers = $csv[0];
         unset($csv[0]);
@@ -71,7 +71,7 @@ final class CSVReader implements Reader
         }
 
         return array_values(
-            array_filter($this->formatCSVDataToKeyedArray(), function($item) use ($searchFor) {
+            array_filter($this->csvArray(), function($item) use ($searchFor) {
                 return $item['Nom attribut français'] === $searchFor && $item['Type poste'] === '';
             })
         );

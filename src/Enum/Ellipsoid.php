@@ -16,7 +16,7 @@ enum Ellipsoid
             self::INTERNATIONAL => [
                 'name' => 'International',
                 'radius'    => 6378388.0,
-                'invinvFlatteningF' => 297.0,
+                'invFlattening' => 297.0,
             ],
             self::WSG84 => [
                 'name' => 'WGS 84',

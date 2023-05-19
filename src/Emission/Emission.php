@@ -10,7 +10,6 @@ use Bzfvrto\Carbonize\ValueObject\GES;
 final class Emission
 {
     public function __construct(
-        // protected readonly GES $emission,
         protected readonly Combustible $combustible,
         protected readonly int|float $consumptionInLiterPerKm,
         protected readonly Country $location
