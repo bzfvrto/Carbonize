@@ -15,5 +15,6 @@ test('reader will throw exception if file does not exist', function () {
     $reader = new CSVAdemeReader(
         __DIR__.'/../../assets/not_existing_file.csv'
     );
-    expect($reader->read())->toThrow(Exception::class);
+    // expect($reader->read())->toThrow(Exception::class);
+    $reader->read();
 })->throws(Exception::class, 'Can not open file');
