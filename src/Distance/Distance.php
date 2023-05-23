@@ -7,28 +7,15 @@ use Bzfvrto\Carbonize\ValueObject\Point;
 
 final class Distance
 {
-    protected Point $from;
-    protected Point $to;
     /**
      * @var Point[]
      */
     protected $steps;
 
-    public static function make(): self
-    {
-        return new self;
-    }
-
-    public function setFrom(Point $point): self
-    {
-        $this->from = $point;
-        return $this;
-    }
-
-    public function setTo(Point $point): self
-    {
-        $this->to = $point;
-        return $this;
+    public function __construct(
+        protected readonly Point $from,
+        protected readonly Point $to
+    ) {
     }
 
     /**

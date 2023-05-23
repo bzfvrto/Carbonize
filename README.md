@@ -36,11 +36,11 @@ composer require bzfvrto/carbonize
 ## Usage
 
 ```php
-$distance = Distance::make()
-                ->setFrom(new Point(1, 2))
-                ->setTo(new Point(4, 5))
-                ->setSteps([new Point(1,3), new Point(2, 4)])
-                ->calculate();
+$distance = (new Distance(
+    from: new Point(1, 2),
+    to: new Point(4, 5)
+    ))->setSteps([new Point(1,3), new Point(2, 4)])
+    ->calculate();
     // output (float) distance in meters: 516972.895251
 
 $vehicle = new Vehicle(

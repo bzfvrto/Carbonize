@@ -13,9 +13,10 @@ test('it can generate an formatted footprint', function () {
         consumptionAvgInLiterFor100Km: 7.5,
         location: Country::FRANCE
     );
-    $distance = Distance::make()
-        ->setFrom(new Point(1, 1))
-        ->setTo(new Point(2, 2));
+    $distance = new Distance(
+        new Point(1, 1),
+        new Point(2, 2)
+    );
 
     $footprint = new Carbonize(
         $vehicle,
