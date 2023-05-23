@@ -36,10 +36,13 @@ composer require bzfvrto/carbonize
 ## Usage
 
 ```php
-$distance = (new Distance(
-    from: new Point(1, 2),
-    to: new Point(4, 5)
-    ))->setSteps([new Point(1,3), new Point(2, 4)])
+$distance = new Distance(
+        from: new Point(1, 2),
+        to: new Point(4, 5)
+    );
+
+$distance
+    ->setSteps([new Point(1,3), new Point(2, 4)])
     ->calculate();
     // output (float) distance in meters: 516972.895251
 
@@ -52,7 +55,9 @@ $vehicle = new Vehicle(
 $vehicle->emission()->getCO2EquivalentInGramsPerKm();
     // output (float) C02e in grammes per km: 232.5
 
-(new Carbonize($vehicle, $distance))->formatedResult();
+(new Carbonize(
+    vehicle: $vehicle,
+    distance: $distance))->formatedResult();
     // output (string): 120196.198 gramme of CO2 emited for 516.97 km
 ```
 
