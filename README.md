@@ -1,8 +1,10 @@
 # Carbonize carbon footprint made easy.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
-<!-- [![Tests](https://img.shields.io/github/actions/workflow/status/bzfvrto/carbonize/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bzfvrto/carbonize/actions/workflows/run-tests.yml) -->
 [![Total Downloads](https://img.shields.io/packagist/dt/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
+<!-- [![Tests](https://img.shields.io/github/actions/workflow/status/bzfvrto/carbonize/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bzfvrto/carbonize/actions/workflows/run-tests.yml) -->
+[![Tests](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml)
+[![Static Analysis](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml)
 
 Carbonize aim to provide simple and clear API to build carbon footprint.
 
