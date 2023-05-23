@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
 [![Total Downloads](https://img.shields.io/packagist/dt/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
 <!-- [![Tests](https://img.shields.io/github/actions/workflow/status/bzfvrto/carbonize/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bzfvrto/carbonize/actions/workflows/run-tests.yml) -->
-[![Tests](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml)
+[![Tests](https://github.com/bzfvrto/Carbonize/actions/workflows/tests.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/tests.yml)
 [![Static Analysis](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml)
 
 Carbonize aim to provide simple and clear API to build carbon footprint.
@@ -43,9 +43,7 @@ $vehicle = new Vehicle(
 $vehicle->emission()->getCO2EquivalentInGramsPerKm();
     // output (float) C02e in grammes per km: 232.5
 
-Carbonize::make()->setVehicle($vehicle)
-                ->setDistance($distance)
-                ->formatedResult();
+(new Carbonize($vehicle, $distance))->formatedResult();
     // output (string): 120196.198 gramme of CO2 emited for 516.97 km
 ```
 
