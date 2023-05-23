@@ -1,0 +1,34 @@
+name: Bug Report
+description: Report unexpected behavior with bzfvrto/carbonize.
+labels: ["bug"]
+assignees:
+  - bzfvrto
+body:
+  - type: markdown
+    attributes:
+      value: Before opening a bug report, please search for the behaviour in the existing issues.
+  - type: input
+    attributes:
+      label: Carbonize version
+      placeholder: "0.0.1"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: PHP Version
+      description: Provide the PHP version that you are using.
+      placeholder: 8.1.4
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: description
+      description: Provide a detailed description of the issue you are facing.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step guide for reproducing the bug in a fresh Laravel application.
+    validations:
+      required: true

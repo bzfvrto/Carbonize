@@ -22,7 +22,8 @@ At this time, only base formula is implemented, it is the most generic and it do
 
 I have take some help and inspiration from :
 - [Geotools](https://github.com/thephpleague/geotools)
-- [Spatie php skeleton](https://github.com/spatie/package-skeleton-php/blob/main/README.md)
+- [Spatie php skeleton](https://github.com/spatie/package-skeleton-php)
+- [Nuno Maduro Skeleton-php](https://github.com/nunomaduro/skeleton-php)
 
 <!-- ## Installation
 
@@ -70,11 +71,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-<!-- Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details. -->
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-## Security Vulnerabilities
+<!-- ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover any security related issues, please email me instead of using the issue tracker. -->
 
 ## Credits
 
