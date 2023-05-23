@@ -1,4 +1,4 @@
-# Carbonize carbon footprint made easy.
+# Carbonize carbon footprint made easy for transport.
 
 <!-- [![Latest Version on Packagist](https://img.shields.io/packagist/v/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
 [![Total Downloads](https://img.shields.io/packagist/dt/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize) -->
@@ -6,23 +6,31 @@
 [![Tests](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/bzfvrto/Carbonize/actions/workflows/test.yml)
 [![Static Analysis](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml)
 
-Carbonize aim to provide simple and clear API to build carbon footprint.
+### Some words about me.
 
-This is my first package.
+> *This is my first package.* <br />
+I have made it, primarily to have feedback on my code.
+I love to code since several years, but i have never publish open-source package. I'm not profesionnal developper but i'm looking for a school next year.
 
-I have drew inspiration from :
+## Description
 
-[![Geotools](https://github.com/thephpleague/geotools)](https://github.com/thephpleague/geotools)
+Carbonize aims to provide simple and clear API to build carbon footprint easily for private vehicles and delivery companies.
+My goal is to make it compilent with the french law. Source of emission come from the [ADEME Base Empreinte](https://base-empreinte.ademe.fr).
+At this time, only base formula is implemented, it is the most generic and it does not allow fine calculation of emission.
 
-[![Spatie php skeleton](https://github.com/spatie/package-skeleton-php/blob/main/README.md)](https://github.com/spatie/package-skeleton-php/blob/main/README.md)
+> This package is a Work in progress. Breaking changes may occur.
 
-## Installation
+I take some help and inspiration from :
+- [Geotools](https://github.com/thephpleague/geotools)
+- [Spatie php skeleton](https://github.com/spatie/package-skeleton-php/blob/main/README.md)
+
+<!-- ## Installation
 
 You can install the package via composer:
 
 ```bash
 composer require bzfvrto/carbonize
-```
+``` -->
 
 ## Usage
 
@@ -43,11 +51,12 @@ $vehicle = new Vehicle(
 $vehicle->emission()->getCO2EquivalentInGramsPerKm();
     // output (float) C02e in grammes per km: 232.5
 
-Carbonize::make()->setVehicle($vehicle)
-                ->setDistance($distance)
-                ->formatedResult();
+(new Carbonize($vehicle, $distance))->formatedResult();
     // output (string): 120196.198 gramme of CO2 emited for 516.97 km
 ```
+
+## Roadmap
+
 
 ## Testing
 
