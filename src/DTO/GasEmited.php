@@ -11,7 +11,7 @@ class GasEmited
         public readonly int|float $ch4b,
         public readonly int|float $n2o,
         public readonly int|float $co2b,
-        public readonly null|int|float $otherGES,
+        public readonly null|int|float $otherGreenhouseGas,
         public readonly string $type, // amont, combustion, total
         public readonly string $baseName,
         public readonly string $attributName,

@@ -2,7 +2,7 @@
 
 namespace Bzfvrto\Carbonize\ValueObject;
 
-final class GES
+final class GreenhouseGas
 {
     public function __construct(
         protected readonly int|float $kgCO2equivalentPerLiter,

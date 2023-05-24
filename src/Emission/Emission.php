@@ -5,7 +5,7 @@ namespace Bzfvrto\Carbonize\Emission;
 use Bzfvrto\Carbonize\Enum\Combustible;
 use Bzfvrto\Carbonize\Enum\Country;
 use Bzfvrto\Carbonize\Support\Reader;
-use Bzfvrto\Carbonize\ValueObject\GES;
+use Bzfvrto\Carbonize\ValueObject\GreenhouseGas;
 
 final class Emission
 {
@@ -18,15 +18,15 @@ final class Emission
 
     public function gesProvider(): Reader
     {
-        return $this->location->getGESProvider();
+        return $this->location->getGreenhouseGasProvider();
     }
 
-    public function getGES(): GES
+    public function getGreenhouseGas(): GreenhouseGas
     {
         /** @var \Bzfvrto\Carbonize\DTO\GasEmited $data */
         $data = $this->gesProvider()->find($this->combustible->value);
 
-        return new GES(
+        return new GreenhouseGas(
             kgCO2equivalentPerLiter: $data->co2equivalent,
             kgCO2fPerLiter: $data->co2f,
             kgCH4PerLiter: $data->ch4f,
@@ -36,7 +36,7 @@ final class Emission
 
     public function co2InGramsPerLitre(): float
     {
-        return $this->getGES()->getCo2eInKgPerLiter() * 1000;
+        return $this->getGreenhouseGas()->getCo2eInKgPerLiter() * 1000;
     }
 
     public function calculateEmissionInGramsPerKm(): float

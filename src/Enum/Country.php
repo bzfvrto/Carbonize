@@ -9,7 +9,7 @@ enum Country
 {
     case FRANCE;
 
-    public function getGESProvider(): Reader
+    public function getGreenhouseGasProvider(): Reader
     {
         return match($this) {
             self::FRANCE => new CSVAdemeReader(

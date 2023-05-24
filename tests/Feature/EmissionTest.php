@@ -3,7 +3,7 @@
 use Bzfvrto\Carbonize\Emission\Emission;
 use Bzfvrto\Carbonize\Enum\Combustible;
 use Bzfvrto\Carbonize\Enum\Country;
-use Bzfvrto\Carbonize\ValueObject\GES;
+use Bzfvrto\Carbonize\ValueObject\GreenhouseGas;
 use Bzfvrto\Carbonize\Vehicle\Vehicle;
 
 test('it can instantiate emission', function () {
@@ -14,7 +14,7 @@ test('it can instantiate emission', function () {
     );
 
     expect($emission)->toBeInstanceOf(Emission::class);
-    expect($emission->getGES())->toBeInstanceOf(GES::class);
+    expect($emission->getGreenhouseGas())->toBeInstanceOf(GreenhouseGas::class);
 
     expect($emission->co2InGramsPerLitre())->toBeFloat();
     expect($emission->co2InGramsPerLitre())->toBe(2700.0);
@@ -30,5 +30,5 @@ test('it can get emission for combustible super', function () {
     );
 
     expect($emission)->toBeInstanceOf(Emission::class);
-    expect($emission->getGES())->toBeInstanceOf(GES::class);
+    expect($emission->getGreenhouseGas())->toBeInstanceOf(GreenhouseGas::class);
 });

@@ -3,7 +3,7 @@
 namespace Bzfvrto\Carbonize\Enum;
 
 use Bzfvrto\Carbonize\Support\CSVReader;
-use Bzfvrto\Carbonize\ValueObject\GES;
+use Bzfvrto\Carbonize\ValueObject\GreenhouseGas;
 
 enum Combustible: string
 {

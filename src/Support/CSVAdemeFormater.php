@@ -19,7 +19,7 @@ final class CSVAdemeFormater implements Formater
             ch4b: (float) $csvArray['CH4b'],
             n2o: (float) $csvArray['N2O'],
             co2b: (float) $csvArray['CO2b'],
-            otherGES: (float) $csvArray['Autres GES'],
+            otherGreenhouseGas: (float) $csvArray['Autres GES'],
             type: $csvArray['Type poste'] !== '' ? $csvArray['Type poste'] : 'total',
             baseName: $csvArray['Nom base français'],
             attributName: $csvArray['Nom attribut français'],
