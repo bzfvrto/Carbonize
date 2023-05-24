@@ -18,5 +18,5 @@ interface Reader
      */
     public function find(string $attributFr): GasEmited;
 
-    public function formatter(): Formater;
+    public function formatter(): Formatter;
 }

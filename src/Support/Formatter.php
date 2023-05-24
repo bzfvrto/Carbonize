@@ -4,7 +4,7 @@ namespace Bzfvrto\Carbonize\Support;
 
 use Bzfvrto\Carbonize\DTO\GasEmited;
 
-interface Formater
+interface Formatter
 {
     /**
      * @param array<string, string> $csvArray

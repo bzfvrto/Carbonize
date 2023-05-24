@@ -40,8 +40,8 @@ final class CSVAdemeReader extends CSVReader
         return $term;
     }
 
-    public function formatter(): Formater
+    public function formatter(): Formatter
     {
-        return new CSVAdemeFormater();
+        return new CSVAdemeFormatter();
     }
 }
