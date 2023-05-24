@@ -15,8 +15,11 @@ I love to code since several years, but i have never publish open-source package
 ## Description
 
 Carbonize aims to provide simple and clear API to build carbon footprint easily for private vehicles and delivery companies.
-My goal is to make it compilent with the french law. Source of emission come from the [ADEME Base Empreinte](https://base-empreinte.ademe.fr).
+My goal is to make it compilent with the french law.
+
 At this time, only base formula is implemented, it is the most generic and it does not allow fine calculation of emission.
+<br />
+Source of emission come from the [ADEME Base Empreinte](https://base-empreinte.ademe.fr).
 
 > This package is a Work in progress. Breaking changes may occur.
 
