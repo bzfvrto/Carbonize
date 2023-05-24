@@ -67,7 +67,9 @@ $vehicle->emission()->getCO2EquivalentInGramsPerKm();
 - [ ] **Formula 2**: Used when the vehicle carry many packages or people
 - [ ] **Formula 3**: Used when the fuel consumption of the vehicle is known
 - [ ] **Formula 4**: Used when vehicle carry many package or people and it's fuel consumption of the vehicle is known
-- [ ] Laravel specific package
+- [ ] Laravel package
+- [ ] More country and Greenhouse gas provider
+- [ ] More combustible type
 
 ## Testing
 
