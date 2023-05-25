@@ -1,10 +1,17 @@
 # Carbonize carbon footprint made easy for transport.
 
-<!-- [![Latest Version on Packagist](https://img.shields.io/packagist/v/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize)
-[![Total Downloads](https://img.shields.io/packagist/dt/bzfvrto/carbonize.svg?style=flat-square)](https://packagist.org/packages/bzfvrto/carbonize) -->
-<!-- [![Tests](https://img.shields.io/github/actions/workflow/status/bzfvrto/carbonize/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/bzfvrto/carbonize/actions/workflows/run-tests.yml) -->
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bzfvrto/carbonize.svg)](https://packagist.org/packages/bzfvrto/carbonize)
 [![Tests](https://github.com/bzfvrto/Carbonize/actions/workflows/tests.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/tests.yml)
 [![Static Analysis](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/bzfvrto/Carbonize/actions/workflows/static-analysis.yml)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/bzfvrto/Carbonize)
+<!-- ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/bzfvrto/Carbonize) -->
+<!-- ![Code Climate issues](https://img.shields.io/codeclimate/issues/bzfvrto/Carbonize) -->
+<!-- ![GitHub top language](https://img.shields.io/github/languages/top/bzfvrto/Carbonize) -->
+<!-- ![GitHub issues](https://img.shields.io/github/issues/bzfvrto/Carbonize) -->
+<!-- ![GitHub](https://img.shields.io/github/license/bzfvrto/Carbonize)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bzfvrto/Carbonize) -->
+<!-- ![Packagist PHP Version](https://img.shields.io/packagist/dependency-v/bzfvrto/carbonize/php) -->
+<!-- [![Total Downloads](https://img.shields.io/packagist/dt/bzfvrto/carbonize.svg)](https://packagist.org/packages/bzfvrto/carbonize) -->
 
 ### Some words about me.
 
@@ -28,13 +35,13 @@ I have take some help and inspiration from :
 - [Spatie php skeleton](https://github.com/spatie/package-skeleton-php)
 - [Nuno Maduro Skeleton-php](https://github.com/nunomaduro/skeleton-php)
 
-<!-- ## Installation
+## Installation
 
 You can install the package via composer:
 
 ```bash
 composer require bzfvrto/carbonize
-``` -->
+```
 
 ## Usage
 
